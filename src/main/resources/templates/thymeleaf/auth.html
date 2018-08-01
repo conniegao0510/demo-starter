@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head lang="en">
+		<meta charset="UTF-8" />
+		<title></title>
+	</head>
+	<body>
+		<div>
+			user :<input th:id="${s.lastfirst}" th:name="${s.lastfirst}" th:value="${s.lastfirst}"/>
+			<br/>
+			grade:<input th:value="${s.grade}"/>
+			<br/>
+			birth:<input th:value="${s.dob}"/>
+			<br/>
+			birth:<input th:value="${#dates.format(s.dob,'dd/MM/yyyy')}" />
+		</div>
+		
+		<div th:object="${s}">
+			user :<input th:id="*{lastfirst}" th:name="*{lastfirst}" th:value="*{lastfirst}"/>
+			<br/>
+			grade:<input th:value="*{grade}"/>
+			<br/>
+			birth:<input th:value="*{dob}"/>
+			<br/>
+			birth:<input th:value="*{#dates.format(dob,'dd/MM/yyyy')}" />
+		</div>
+		<br/>
+		text and utest: <br/>
+		<span th:utext="${s.desc}">abc</span>
+		<br/>
+		<span th:text="${s.desc}">abc</span>
+		<br/>
+		URL:<br/>
+		<a href="" th:href="@{https://hub.scis-china.org}">Website</a>
+		<br/>
+		<script th:src="@{/static/js/demo.js}"></script>
+		
+		<form th:action="@{/th/postform}" th:object="${s}" method="post" th:method="post">
+			<input type="text" th:field="*{lastfirst}"/>
+			<input type="text" th:field="*{grade}"/>
+			<input type="submit"/>
+		</form>
+		<br/>
+		<div th:if="${s.grade} ge 6">Upper</div>
+		<div th:if="${s.grade} le 1">ECE</div>
+		<!-- 
+		<div th:if="${s.grade} == 2">LS</div>
+		<div th:if="${s.grade} == 3">LS</div>
+		<div th:if="${s.grade} == 4">LS</div>
+		<div th:if="${s.grade} == 5">LS</div>
+		 -->
+		<div th:unless="${s.grade} ge 6" th:if="${s.grade} gt 1">LS</div>
+		<select>
+			<option>Select</option>
+			<option th:selected="${s.lastfirst eq 'connie gao'}">Connie</option>
+			<option th:selected="${s.lastfirst eq 'Levi gao'}">Levi</option>				
+		</select>
+		<table>
+			<tr>
+				<th>lastfirst</th>
+				<th>grade</th>
+				<th>DOB</th>
+			</tr>
+			<tr th:each="st:${sList}">
+				<td th:text="${st.lastfirst}"></td>
+				<td th:text="${st.grade}"></td>
+				<td th:text="${#dates.format(st.dob,'dd/MM/yyyy')}"></td>
+			</tr>
+		</table>
+		<div th:switch="${s.lastfirst}">
+			<p th:case="'Levi gao'"><span th:text="${s.lastfirst}">user</span> Admin</p>
+			<p th:case="#{roles.superadmin}"><span th:text="${s.lastfirst}">user</span> Superadmin</p>
+			<p th:case="#{roles.manager}"><span th:text="${s.lastfirst}">user</span> Manager</p>
+			<p th:case="*"><span th:text="${s.lastfirst}">user</span> Guest</p>
+		</div>
+	</body>
+</html>
