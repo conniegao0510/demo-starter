@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.testDemo.mapper.TlabsStudentsMapper">
+  <resultMap id="BaseResultMap" type="com.testDemo.pojo.TlabsStudents">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <id column="student_number" jdbcType="INTEGER" property="studentNumber" />
+    <result column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="campus_code" jdbcType="INTEGER" property="campusCode" />
+    <result column="lastfirst" jdbcType="VARCHAR" property="lastfirst" />
+    <result column="firstname" jdbcType="VARCHAR" property="firstname" />
+    <result column="lastname" jdbcType="VARCHAR" property="lastname" />
+    <result column="midname" jdbcType="VARCHAR" property="midname" />
+    <result column="prefname" jdbcType="VARCHAR" property="prefname" />
+    <result column="status" jdbcType="BIT" property="status" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="family" jdbcType="VARCHAR" property="family" />
+    <result column="grade_level" jdbcType="INTEGER" property="gradeLevel" />
+    <result column="grade_next" jdbcType="INTEGER" property="gradeNext" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="language" jdbcType="VARCHAR" property="language" />
+    <result column="nation" jdbcType="VARCHAR" property="nation" />
+    <result column="dob" jdbcType="DATE" property="dob" />
+    <result column="pob" jdbcType="VARCHAR" property="pob" />
+    <result column="fulltime" jdbcType="CHAR" property="fulltime" />
+    <result column="passport" jdbcType="VARCHAR" property="passport" />
+    <result column="visa" jdbcType="VARCHAR" property="visa" />
+    <result column="visa_exp" jdbcType="DATE" property="visaExp" />
+    <result column="entrydate" jdbcType="DATE" property="entrydate" />
+    <result column="exitdate" jdbcType="DATE" property="exitdate" />
+    <result column="ctime" jdbcType="INTEGER" property="ctime" />
+    <result column="mtime" jdbcType="INTEGER" property="mtime" />
+    <result column="stime" jdbcType="INTEGER" property="stime" />
+    <result column="profile_fields" jdbcType="LONGVARCHAR" property="profileFields" />
+    <result column="remark" jdbcType="LONGVARCHAR" property="remark" />
+  </resultMap>
+</mapper>
